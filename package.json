@@ -1,0 +1,26 @@
+{
+  "name": "places-finder-app",
+  "version": "1.0.0",
+  "description": "A web application for finding places",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Polymathwole/bc-22-places-finder-app.git"
+  },
+  "keywords": [
+    "Places",
+    "location"
+  ],
+  "author": "Oluwaremi Oluwole",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Polymathwole/bc-22-places-finder-app/issues"
+  },
+  "homepage": "https://github.com/Polymathwole/bc-22-places-finder-app#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
