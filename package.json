@@ -2,9 +2,10 @@
   "name": "places-finder-app",
   "version": "1.0.0",
   "description": "A web application for finding places",
-  "main": "main.js",
+  "main": "js/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"nodemon main.js"
   },
   "repository": {
     "type": "git",
@@ -22,5 +23,8 @@
   "homepage": "https://github.com/Polymathwole/bc-22-places-finder-app#readme",
   "dependencies": {
     "express": "^4.15.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }
