@@ -29,6 +29,6 @@ app.use(function(req, res){
 
 
 
-app.listen(8080, function(){
+app.listen(process.env.PORT||8080, function(){
   console.log( 'Express started on http://localhost:' + 8080 + '; press Ctrl-C to terminate.' );
 });
