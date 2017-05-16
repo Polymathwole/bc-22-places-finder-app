@@ -2,7 +2,7 @@
   "name": "places-finder-app",
   "version": "1.0.0",
   "description": "A web application for finding places",
-  "main": "js/main.js",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
