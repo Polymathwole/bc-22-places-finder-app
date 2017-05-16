@@ -24,5 +24,8 @@
     "express": "^4.15.2",
     "express-handlebars": "^3.0.0",
     "firebase": "^3.9.0"
+  },
+  "engines": {
+    "node": "6.10.3"
   }
 }
