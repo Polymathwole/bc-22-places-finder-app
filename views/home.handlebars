@@ -1,6 +1,19 @@
-<div>
-    <div id="aaa">
-        <p>Places Finder</p>
-        <p>Locate anywhere, anytime</p>
-    </div>
+<div id="container">
+     <p id="pf">Places Finder</p>
+    <p id="laa">Locate anywhere, anytime</p>
 </div>
+<div>
+<p>Log in</p>
+<form id="frm1" action="/dashboard">
+    <label for="em">Email</label>
+    <input type="email" name="em" id="mail" placeholder="Enter your email" />
+    <br>
+    <label name="pw">Password</label>
+    <input type="password" name="pw" id="pass" placeholder="Enter your password"/><br>
+    <input type="submit" value="LOG IN">
+    <p>Don't have an account? <a href={{{sin}}}>Sign in</a></p>
+</form>
+</div>
+<script src="/static/js/jquery-3.2.1.min.js"></script>
+<script src="/static/js/jquery.validate.min.js"></script>
+<script src="/static/js/newtest.js"></script>

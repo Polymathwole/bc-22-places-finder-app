@@ -7,7 +7,19 @@ app.set('view engine', 'handlebars');
 app.use('/static', e.static('public'));
 
 app.get('/', function(req, res){
-        res.render("home");
+        res.render("home",{sin: req.route.path+"signup"});
+});
+
+
+app.get('/dashboard', function(req, res){
+        res.render("dashboard",{
+                 nam: req.query.em,
+                namee: req.query.pw
+        });
+});
+
+app.get('/signup', function(req, res){
+        res.render("signup")
 });
 
 app.use(function(req, res){
