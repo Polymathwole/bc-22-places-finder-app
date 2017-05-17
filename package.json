@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/Polymathwole/bc-22-places-finder-app#readme",
   "dependencies": {
+    "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "express-handlebars": "^3.0.0",
     "firebase": "^3.9.0"
