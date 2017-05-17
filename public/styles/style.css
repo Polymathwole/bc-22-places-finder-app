@@ -3,8 +3,6 @@ body
     background-color: #4abdac;
 }
 
-
-
 label.error {
   color: #F00;
   font-weight: bold;
@@ -12,4 +10,11 @@ label.error {
 
 input.error, select.error, textarea.error {
   border: 1px red solid;
+}
+
+
+#dashwelcome
+{
+  position: absolute;
+  right: 100px;
 }
