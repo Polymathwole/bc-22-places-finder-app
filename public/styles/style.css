@@ -16,5 +16,126 @@ input.error, select.error, textarea.error {
 #dashwelcome
 {
   position: absolute;
+  right: 50px;
+}
+
+#containsb
+{
+  position: absolute;
+  width: 900px;
+  top: 50px;
+  left: 200px;
+  border: 3px solid #f00;
+}
+
+input[type="search"]
+{
+  width: 700px;
+  margin-right: 20px;
+}
+
+input[type="button"]
+{
+  display:inline;
+}
+
+#mapContainer
+{
+  width: 900px;
+  height: 700px;
+  margin-top:20px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 3px solid blueviolet;
+}
+
+#imgb
+{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background:url("../images/image-bg.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; 
+}
+
+#container
+{
+  position: absolute;
+  font-size: 30pt;
+  margin-left: auto;
+  margin-right: auto;
+  top:20px;
+  left:200px;
+  right:200px;
+  width: 600px;
+  padding:0;
+  background-color: #339cff;
+}
+
+p#pf,p#laa
+{
+  text-align:center;
+  color: whitesmoke;
+}
+
+p#lg
+{
+  text-align:center;
+  font-size: 20pt;
+}
+
+#login
+{
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  top:250px;
+  left:200px;
+  right:200px;
+  width: 600px;
+  background-color: #339cff;
+  margin-top:20px;
+}
+
+label
+{
+  position: relative;
+  width:30px;
+  left: 100px;
+  color: whitesmoke;
+  font-size: 20pt;
+}
+
+input[type='email'],input[type='password']
+{
+  width: 300px;
+  height: 30px;
+  right: 90px;
+  position: absolute;
+  margin-bottom:20px;
+}
+
+input[type='submit']
+{
+  width: 300px;
+  height: 25px;
+  position: relative;
+  margin-top:20px;
+  left: 150px
+}
+
+#forsignup
+{
+  width: 300px;
   right: 100px;
+  display: block;
+  margin-left:auto;
+  margin-right:auto;
+  font-size: 15pt;
+  color:whitesmoke;
 }

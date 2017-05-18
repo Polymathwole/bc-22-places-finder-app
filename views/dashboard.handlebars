@@ -1,1 +1,10 @@
 <div id="dashwelcome"><h3 >Welcome, {{{nam}}}.</h3><a href={{{logout}}}>Log out</a></div>
+<div id="containsb">
+<form method="post" action="/places">
+<input type = "search" name="place" placeholder="Enter the place you are looking for" id= "searchPlace"/>
+<input type="submit" id="searchbutt" value="Search" />
+</form>
+<div id="mapContainer">{{{tabled}}}</div>
+</div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj2rghp5k8TD8nsbiO0c8Hj9O99GKu9PQ&libraries=places&callback=initAutocomplete">
+<script src="/static/js/placesjs.js"></script>

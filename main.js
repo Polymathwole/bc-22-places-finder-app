@@ -3,6 +3,11 @@ let app = e();
 let exphbs  = require('express-handlebars');
 let firebase = require("firebase");
 let bp=require('body-parser');
+let googleMapsClient = require('@google/maps').createClient({key: 'AIzaSyCj2rghp5k8TD8nsbiO0c8Hj9O99GKu9PQ'});
+const Agent = require('node-rest-client').Client;
+const nrc = new Agent();
+
+
 
 
 let config = {
@@ -17,6 +22,7 @@ let config = {
 firebase.initializeApp(config);
 
 const auth=firebase.auth();
+const db=firebase.database();
 app.use(bp());
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
@@ -52,16 +58,58 @@ app.get('/signup', function(req, res){
 });
 
 app.post('/authenticate',function(req,res){
-        console.log(req.body);
-        auth.createUserWithEmailAndPassword(req.body.em, req.body.pw).catch((e)=>console.log(e));       
+        auth.createUserWithEmailAndPassword(req.body.em, req.body.pw).catch((e)=>console.log(e)).then(()=>{
+                db.ref("users/"+req.body.em.split(/[.@-_]/).join('')).set({"fname": req.body.fn,"lname":req.body.ln,"email":req.body.em}).catch((e)=>console.log(e));
+                db.ref("users/"+req.body.em.split(/[.@-_]/).join('')+"/favorites/favoritePOIs").set([]);
+                x=db.ref("users/"+req.body.em.split(/[.@-_]/).join('')+"/favorites/favoritePOIs");
+                x.update({0:8});
 
+
+                res.redirect('signupsuccess');
+        })  
 }
 );
+
+app.get('/signupsuccess', function(req, res){
+        auth.signOut();
+        res.render("signupsuccess",{login:req.route.path.split('s')[0]});
+});
+
+
+
+app.post('/places',function(req,res){
+let tab='<table><tr><th>Name</th><th>Rating</th><th>Address</th><th>Add to favorites</th></tr><tr id="par">';
+
+nrc.get('https://maps.googleapis.com/maps/api/place/textsearch/json?query='+req.body.place+'&key=AIzaSyCj2rghp5k8TD8nsbiO0c8Hj9O99GKu9PQ',(d,r)=>{
+        let data=d.results;
+
+        for (let i=0;i<data.length;++i)
+        {
+             ech='<td>'+data[i].name +'</td>'+'<td>'+data[i].rating+'</td>'+'<td>'+data[i].formatted_address+'</td>'+'<td><input type="button" class="genbutt"><td></tr><tr id="par">';
+             tab+=ech;
+        }
+        tab+="</tr></table>"
+
+        res.setHeader("content-type",'text/html');    
+        res.render('places',{tabl:tab});
+});
+}
+);
+
+app.get('/addtofavorites',function(req,res){
+let em=auth.currentUser.email.split(/[.@-_]/).join('');
+let thedb=db.ref("users/"+em+"/favorites/favoritePOIs");
+let i = Math.floor(Math.random() * 100000);
+
+
+thedb.update({i:req.query.data}).catch((e)=>res.send(e)).then(()=>{res.send('User favorites updated')});
+});
+
 
 auth.onAuthStateChanged((user)=>{
         if (user) 
         {
-        console.log('user logged in')
+        console.log(auth.currentUser.email+' user logged in')
         } 
         else 
         {
