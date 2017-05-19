@@ -75,23 +75,30 @@ app.get('/signupsuccess', function(req, res){
         res.render("signupsuccess",{login:req.route.path.split('s')[0]});
 });
 
-
+let da=[];
 
 app.post('/places',function(req,res){
 let tab='<table><tr><th>Name</th><th>Rating</th><th>Address</th><th>Add to favorites</th></tr><tr id="par">';
-
 nrc.get('https://maps.googleapis.com/maps/api/place/textsearch/json?query='+req.body.place+'&key=AIzaSyCj2rghp5k8TD8nsbiO0c8Hj9O99GKu9PQ',(d,r)=>{
-        let data=d.results;
+        data =d.results;
+        
 
         for (let i=0;i<data.length;++i)
         {
-             ech='<td>'+data[i].name +'</td>'+'<td>'+data[i].rating+'</td>'+'<td>'+data[i].formatted_address+'</td>'+'<td><input type="button" class="genbutt"><td></tr><tr id="par">';
-             tab+=ech;
+                da.push(i);
+                da.push(data[i].name);
+                da.push(data[i].rating);
+                da.push(data[i].formatted_address);
+
+            ech='<td>'+data[i].name +'</td>'+'<td>'+data[i].rating+'</td>'+'<td>'+data[i].formatted_address+'</td>'+'<td><input type="button" id='+ `${i}`+' onclick=clicked()><td></tr><tr id="par">';
+           tab+=ech;
+
         }
+
         tab+="</tr></table>"
 
-        res.setHeader("content-type",'text/html');    
-        res.render('places',{tabl:tab});
+      res.setHeader("content-type",'text/html');    
+     res.render('places',{tabl:tab});
 });
 }
 );
@@ -99,8 +106,16 @@ nrc.get('https://maps.googleapis.com/maps/api/place/textsearch/json?query='+req.
 app.get('/addtofavorites',function(req,res){
 let em=auth.currentUser.email.split(/[.@-_]/).join('');
 let thedb=db.ref("users/"+em+"/favorites/favoritePOIs");
-let i = Math.floor(Math.random() * 100000);
+let ip = parseInt(req.query.data);
 
+let towrite='';
+for (let i=0;i<da.length;i+=4)
+{
+        if (ip===i)
+        {
+                towrite='Name of favorite: ' + da[i+1] + ' Rating: '+ da[i+2] + ' Address: '+ da[i+3];
+        }
+}
 
 thedb.update({i:req.query.data}).catch((e)=>res.send(e)).then(()=>{res.send('User favorites updated')});
 });

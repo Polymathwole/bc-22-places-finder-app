@@ -1,17 +1,15 @@
-(()=>{
+(clicked=(event)=>{
+      dat=$(event.target).attr('id');
+      console.log(dat);
 
-    $('.genbutt').click(()=>{
-      console.log('initiate')
 $.ajax({
   url: '/addtofavorites',
-  data: "data=M",
+  data: `data=${dat}`,
   method:'GET',
-  success: function( result ) {
+  success: function( result) {
     console.log(result);
   }
 });
-})
-    
-  })();
-
+}
+)()
 

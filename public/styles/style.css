@@ -1,6 +1,17 @@
 body
 {
-    background-color: #4abdac;
+    background-color: #339cff;
+}
+
+#masterContainer
+{
+  position: relative;
+  width:900px;
+  height:700px;
+  margin-top:50px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: whitesmoke;
 }
 
 label.error {
@@ -17,21 +28,31 @@ input.error, select.error, textarea.error {
 {
   position: absolute;
   right: 50px;
+  
 }
+
+#dashwelcome a,#dashwelcome h3,
+{
+  display:inline-block;
+}
+
+
 
 #containsb
 {
   position: absolute;
   width: 900px;
   top: 50px;
-  left: 200px;
-  border: 3px solid #f00;
+   margin-left: auto;
+  margin-right: auto;
 }
 
 input[type="search"]
 {
-  width: 700px;
-  margin-right: 20px;
+width: 700px;
+  height: 40px;
+  
+
 }
 
 input[type="button"]
@@ -39,14 +60,14 @@ input[type="button"]
   display:inline;
 }
 
-#mapContainer
+.mapContainer
 {
-  width: 900px;
-  height: 700px;
-  margin-top:20px;
-  margin-left: auto;
-  margin-right: auto;
-  border: 3px solid blueviolet;
+display:block;
+}
+
+.mapContainer p 
+{
+    text-align:center;
 }
 
 #imgb
@@ -102,7 +123,7 @@ p#lg
   margin-top:20px;
 }
 
-label
+#frm1 label
 {
   position: relative;
   width:30px;
@@ -138,4 +159,39 @@ label
   margin-right:auto;
   font-size: 15pt;
   color:whitesmoke;
+}
+
+#frm2 input[type='email'],#frm2 input[type='password'],#frm2 input[type='text']
+{
+  width: 300px;
+  height: 30px;
+  right: 90px;
+  position: absolute;
+  margin-bottom:20px;
+}
+
+#frm2 label
+{
+  position: relative;
+  width:30px;
+  left: 100px;
+  color: black;
+  font-size: 20pt;
+}
+
+#frm2 input[type='submit']
+{
+  width: 300px;
+  height: 25px;
+  position: relative;
+  margin-top:20px;
+  left: 150px
+}
+
+#form2
+{
+  position: absolute;
+  width: 350px;
+  margin-right: auto;
+  margin-left: auto;
 }
